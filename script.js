@@ -1,13 +1,18 @@
 const addItem = () => {
     const value = document.getElementById('input-field').value;
-    // Display in UI
-    displayProduct(value);
+    if (value) {
+        // Display in UI
+        displayProduct(value);
 
-    // Add To Local Storage
-    addProductToCart(value);
+        // Add To Local Storage
+        addProductToCart(value);
 
-    // Clear input Field
-    document.getElementById('input-field').value = '';
+        // Clear input Field
+        document.getElementById('input-field').value = '';
+
+    } else {
+        alert("Enter Some things");
+    }
 }
 const displayProduct = pName => {
     const li = document.createElement('li');
