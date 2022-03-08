@@ -21,7 +21,7 @@ const displayProduct = pName => {
 }
 
 const upDateListUi = () => {
-    const storageListData = JSON.parse(localStorage.getItem('cart'));
+    const storageListData = getCart();
     for (const key in storageListData) {
         // console.log(storageListData[key])
         displayProduct(storageListData[key]);
@@ -29,7 +29,7 @@ const upDateListUi = () => {
     }
 
 }
-upDateListUi();
+
 
 const getCart = () => {
     const cart = localStorage.getItem('cart');
@@ -49,7 +49,16 @@ const addProductToCart = name => {
     cart[cartLength] = name;
     const cartStringified = JSON.stringify(cart);
 
-    localStorage.setItem('cart', cartStringified)
+    localStorage.setItem('cart', cartStringified);
+
+
+}
+
+upDateListUi();
+
+const removeAll = () => {
+    document.getElementById('products').textContent = '';
+    localStorage.removeItem('cart');
 
 
 }
